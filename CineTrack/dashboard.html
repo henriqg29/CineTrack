@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineTrack - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+        <h1>CineTrack</h1>
+
+        <!-- Menu de navegação -->
+        <nav>
+            <a href="#" id="linkDashboard" class="ativo">Dashboard</a>
+            <a href="#" id="linkFilmes">Meus filmes</a>
+            <a href="#" id="linkFavoritos">Favoritos</a>
+            <a href="#" id="linkEstatisticas">Estatísticas</a>
+        </nav>
+
+        <!-- Botão para sair da conta -->
+        <button id="btnSair">
+            Sair
+        </button>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo">
+        <header class="topo">
+            <div>
+                <h2>Olá, <span id="nomeUsuario">usuário</span>!</h2>
+                <p>Aqui está o resumo da sua biblioteca</p>
+            </div>
+        </header>
+
+        <!-- Cards de resumo -->
+        <section class="cards">
+            <!-- Card de filmes -->
+            <div class="card">
+                <h3>Total de filmes</h3>
+                <p id="totalFilmes">0</p>
+            </div>
+
+            <!-- Cards de filmes assistidos -->
+            <div class="card">
+                <h3>Assistidos</h3>
+                <p id="filmesAssistidos">0</p>
+            </div>
+
+            <!-- Cards de filmes favoritos -->
+            <div class="card">
+                <h3>Favoritos</h3>
+                <p id="totalFavoritos">0</p>
+            </div>
+        </section>
+
+        <!-- Seção de filmes -->
+        <section class="filmes">
+            <div class="secao-titulo">
+                <div>
+                    <h2>Meus filmes</h2>
+                    <p>Organize os filmes que você quer assistir</p>
+                </div>
+
+                <!-- Botão que abrirá o formulário para adicionar filme -->
+                <button id="btnAdicionar">+ Adicionar filme</button>
+            </div>
+
+            <!-- Área onde os filmes aparecerão -->
+            <div id="listaFilmes">
+                <!-- Mensagem inicial -->
+                <p class="sem-filmes">Você ainda não adicionou nenhum filme</p>
+            </div>
+        </section>
+
+        <section class="estatisticas" id="secaoEstatisticas">
+            <div class="secao-titulo">
+                <div>
+                    <h2>Estatísticas</h2>
+                    <p>Veja um resumo da sua biblioteca</p>
+                </div>
+            </div>
+            <div class="estatisticas-cards">
+                <div class="estatistica-card">
+                    <h3>Total dos filmes</h3>
+                    <p id="estatisticaTotal">0</p>
+                </div>
+                <div class="estatistica-card">
+                    <h3>Assistidos</h3>
+                    <p id="estatisticaAssistidos">0</p>
+                </div>
+
+                <div class="estatistica-card">
+                    <h3>Favoritos</h3>
+                    <p id="estatisticaFavoritos">0</p>
+                </div>
+                <div class="estatistica-card">
+                    <h3>Não assistidos</h3>
+                    <p id="estatisticaNaoAssistidos">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal de adicionar filme -->
+        <div id="modalFilme" class="modal">
+            <div class="modal-conteudo">
+                <!-- Titulo do formulário -->
+                <h2>Adicionar Filme</h2>
+                <!-- Formulário -->
+                <form id="filmeForm">
+                    <!-- Nome do filme -->
+                    <div class="campo">
+                        <label for="tituloFilme">Titulo</label>
+                        <input type="text"
+                        id="tituloFilme"
+                        placeholder="Digite o nome do filme"
+                        required>
+                    </div>
+                    <!-- Botões -->
+                    <div class="botoes-modal">
+                        <button type="submit">
+                            Adicionar
+                        </button>
+
+                    <!-- Fechar -->
+                    <button type="button" id="btnFecharModal">
+                        Cancelar
+                    </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal de editar filme -->
+        <div id="modalEditar" class="modal">
+            <div class="modal-conteudo">
+                <h2>Editar Filme</h2>
+                <form id="editarForm">
+                    <div class="campo">
+                        <label for="editarTitulo">Título</label>
+                        <input type="text" id="editarTitulo" required>
+                    </div>
+                    <div class="campo">
+                        <label for="editarAno">Ano</label>
+                        <input type="number" id="editarAno" required>
+                    </div>
+                    <div class="campo">
+                        <label for="editarGenero">Gênero</label>
+                        <input type="text" id="editarGenero" required>
+                    </div>
+                    <div class="botoes-modal">
+                        <button type="submit">
+                            Salvar
+                        </button>
+                        <button type="button" id="btnFecharEditar">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

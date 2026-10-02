@@ -1,0 +1,481 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Menu lateral */
+
+.sidebar {
+    width: 230px;
+    min-height: 100vh;
+    background-color: #171717;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h1 {
+    font-size: 26px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #999;
+    padding: 12px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.sidebar nav a:hover {
+    background-color: #222;
+    color: white;
+}
+
+.sidebar nav a.ativo {
+    background-color: #e50914;
+    color: white;
+}
+
+#btnSair {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #222;
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+#btnSair:hover {
+    background-color: #e50914;
+    color: white;
+}
+
+/* Conteúdo */
+
+.conteudo {
+    flex: 1;
+    padding: 40px;
+}
+
+.topo {
+    margin-bottom: 35px;
+}
+
+.topo h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+/* Cards de resumo */
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    flex: 1;
+    background-color: #171717;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #292929;
+}
+
+.card h3 {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Filmes */
+
+.filmes {
+    background-color: #171717;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #292929;
+}
+
+.secao-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.secao-titulo h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.secao-titulo p {
+    color: #999;
+    font-size: 14px;
+}
+
+#btnAdicionar {
+    width: auto;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #e50914;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#btnAdicionar:hover {
+    background-color: #b20710;
+}
+
+.sem-filmes {
+    text-align: center;
+    color: #777;
+    padding: 40px 0;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background-color: #171717;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    border: 1px solid #292929;
+}
+
+.modal-conteudo h2 {
+    margin-bottom: 25px;
+}
+
+.modal-conteudo .campo {
+    margin-bottom: 20px;
+}
+
+.modal-conteudo input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    outline: none;
+}
+
+.modal-conteudo input:focus {
+    border-color: #e50914;
+}
+
+.botoes-modal {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.botoes-modal button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botoes-modal button[type="submit"] {
+    background-color: #e50914;
+    color: white;
+}
+
+#btnFecharModal {
+    background-color: #333;
+    color: white;
+}
+
+.botoes-modal button:hover {
+    opacity: 0.85;
+}
+
+/* Cards dos filmes */
+
+#listaFilmes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.filme-card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.2s;
+}
+
+.filme-card:hover {
+    border-color: #e50914;
+    transform: translateY(-3px);
+}
+
+.filme-card h3 {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.filme-acoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.filme-acoes button {
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-principal {
+    background-color: #e50914;
+    color: white;
+}
+
+.btn-principal:hover {
+    background-color: #b20710;
+}
+
+.btn-secundario {
+    background-color: #333;
+    color: #bbb;
+}
+
+.btn-secundario:hover {
+    background-color: #444;
+    color: white;
+}
+
+/* Informações dos filmes */
+
+.filme-poster {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.filme-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.filme-poster img:hover {
+    transform: scale(1.05);
+}
+
+.filme-info {
+    flex: 1;
+}
+
+.filme-info h3 {
+    font-size: 19px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.filme-info p {
+    color: #999;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.filme-nota {
+    color: #f5c518;
+    font-weight: bold;
+    margin-top: 10px !important;
+}
+
+/* Estatísticas */
+
+.estatisticas {
+    background-color: #171717;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #292929;
+}
+
+.estatisticas-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.estatistica-card {
+    background-color: #222;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: 0.2s;
+}
+
+.estatistica-card:hover {
+    border-color: #e50914;
+    transform: translateY(-3px);
+}
+
+.estatistica-card h3 {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.estatistica-card p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+        padding: 25px 15px;
+    }
+
+    .sidebar h1 {
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+    .conteudo {
+        padding: 25px;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        min-width: calc(50% - 10px);
+    }
+
+    #listaFilmes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 20px;
+    }
+
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar h1 {
+        margin-bottom: 20px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar nav a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #btnSair {
+        margin-top: 20px;
+    }
+
+    .conteudo {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .secao-titulo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #btnAdicionar {
+        width: 100%;
+    }
+
+    #listaFilmes {
+        grid-template-columns: 1fr;
+    }
+
+    .estatisticas-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .filme-poster {
+        height: 300px;
+    }
+}
